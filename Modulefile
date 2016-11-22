@@ -1,6 +1,6 @@
 name    'glooby-rackspace'
 version '0.1.0'
-source ''
+source 'https://github.com/glooby/puppet-rackspace'
 author 'Emil Kilhage'
 license 'MIT'
 summary 'Puppet module to manage cloudmonitoring and cloudbackup services'

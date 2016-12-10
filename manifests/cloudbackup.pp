@@ -1,7 +1,7 @@
 class rackspace::cloudbackup (
   $cloudbackup_install      = params_lookup('cloudbackup_install'),
-  $rax_username             = params_lookup('rax_username'),
-  $rax_api_key              = params_lookup('rax_api_key')
+  $username             = params_lookup('rax_username'),
+  $api_key              = params_lookup('rax_api_key')
 ) inherits rackspace::params {
   if $cloudbackup_install == false {
     package { 'driveclient': ensure => absent }
@@ -30,7 +30,7 @@ class rackspace::cloudbackup (
     }
 
     exec { 'configure_driveclient':
-      command     => "driveclient --configure --username=${rax_username} --apikey=${rax_api_key}",
+      command     => "driveclient --configure --username=${username} --apikey=${api_key}",
       path        => "/sbin:/usr/bin:/usr/local/bin/:/bin/",
       unless      => "/bin/grep IsRegistered /etc/driveclient/bootstrap.json | /bin/grep -q true",
       notify      => [ Service["driveclient"] ],

@@ -1,5 +1,5 @@
 name    'glooby-rackspace'
-version '0.1.0'
+version '0.1.1'
 source 'https://github.com/glooby/puppet-rackspace'
 author 'Emil Kilhage'
 license 'MIT'
